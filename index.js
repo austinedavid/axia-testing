@@ -8,6 +8,9 @@ const app = express();
 require("dotenv").config();
 const cors = require("cors");
 
+// check port
+const PORT = process.env.PORT || 5000;
+
 // connect mongoose to the application
 mongoose
   .connect(process.env.MONGO_URL)
@@ -21,6 +24,6 @@ app.use("/todo", UsersRoute);
 app.use("/todo", todoRoute);
 app.use("/learn", learnRoute);
 //  for todo
-app.listen(5000, () => {
+app.listen(PORT, () => {
   console.log("app is running");
 });
